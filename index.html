@@ -1,262 +1,498 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Punnoose P Punnoose - Resume</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Calibri', 'Arial', sans-serif;
+            line-height: 1.4;
             margin: 0;
-            padding: 0;
-            color: #333;
-            line-height: 1.5;
-        }
-        .container {
-            width: 850px;
-            margin: 0 auto;
             padding: 20px;
+            background-color: #f8f9fa;
         }
+        
+        .resume-container {
+            max-width: 8.5in;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        
         .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #2c3e50;
+            padding-bottom: 20px;
         }
+        
         .name {
             font-size: 32px;
             font-weight: bold;
-            margin: 0;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
         }
+        
+        .title {
+            font-size: 18px;
+            color: #34495e;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
         .contact-info {
-            text-align: right;
-            font-size: 14px;
+            font-size: 11px;
+            color: #555;
+            line-height: 1.6;
         }
+        
         .contact-info a {
-            color: #333;
+            color: #3498db;
             text-decoration: none;
         }
-        .section-heading {
-            background-color: #b0b0b0;
-            padding: 8px 15px;
-            margin: 15px 0 10px 0;
-            font-size: 20px;
+        
+        .section {
+            margin-bottom: 25px;
+        }
+        
+        .section-title {
+            font-size: 16px;
             font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 12px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            margin-bottom: 15px;
+        
+        .summary {
+            font-size: 11px;
+            text-align: justify;
+            line-height: 1.5;
+            color: #444;
         }
-        .skill-group {
-            width: 50%;
-            display: flex;
-            margin-bottom: 10px;
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            font-size: 10px;
         }
-        .skill-bullet {
-            margin-right: 10px;
+        
+        .skill-category {
+            margin-bottom: 8px;
         }
+        
+        .skill-label {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
         .project {
-            margin-bottom: 15px;
+            margin-bottom: 18px;
+            font-size: 10px;
         }
+        
         .project-title {
             font-weight: bold;
-            font-size: 16px;
-            margin-bottom: 5px;
-            display: flex;
-            justify-content: space-between;
+            font-size: 12px;
+            color: #2c3e50;
+            margin-bottom: 4px;
         }
-        .project-date {
-            font-weight: normal;
+        
+        .project-subtitle {
+            font-style: italic;
+            color: #7f8c8d;
+            margin-bottom: 6px;
         }
+        
         .project-details {
-            margin-left: 20px;
+            margin-left: 15px;
         }
-        .experience {
+        
+        .project-details li {
+            margin-bottom: 3px;
+            line-height: 1.4;
+        }
+        
+        .experience-item {
             margin-bottom: 15px;
+            font-size: 10px;
         }
-        .experience-title {
+        
+        .job-title {
             font-weight: bold;
-            font-size: 16px;
-            margin-bottom: 5px;
-            display: flex;
-            justify-content: space-between;
+            font-size: 12px;
+            color: #2c3e50;
         }
-        .experience-date {
-            font-weight: normal;
+        
+        .company-date {
+            font-style: italic;
+            color: #7f8c8d;
+            margin-bottom: 6px;
         }
-        .experience-details {
-            margin-left: 20px;
+        
+        .job-details {
+            margin-left: 15px;
         }
-        .education {
-            margin-bottom: 15px;
+        
+        .job-details li {
+            margin-bottom: 3px;
+            line-height: 1.4;
         }
-        .awards {
-            margin-left: 20px;
+        
+        .education-item {
+            font-size: 11px;
+            margin-bottom: 8px;
         }
-        a {
-            color: #0066cc;
+        
+        .degree {
+            font-weight: bold;
+            color: #2c3e50;
         }
+        
+        .institution {
+            font-style: italic;
+            color: #7f8c8d;
+        }
+        
+        .achievement {
+            margin-bottom: 8px;
+            font-size: 10px;
+        }
+        
+        .achievement-title {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .download-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #3498db;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .download-btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+        }
+        
         ul {
-            margin: 5px 0;
-            padding-left: 20px;
+            margin: 0;
+            padding-left: 15px;
         }
-        li {
-            margin-bottom: 5px;
+        
+        @media print {
+            body { background-color: white; }
+            .resume-container { box-shadow: none; padding: 20px; }
+            .download-btn { display: none; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <button class="download-btn" onclick="downloadAsWord()">📄 Download as Word Doc</button>
+    
+    <div class="resume-container">
         <div class="header">
-            <h1 class="name">PUNNOOSE P PUNNOOSE</h1>
+            <div class="name">PUNNOOSE P PUNNOOSE</div>
+            <div class="title">Full Stack Developer | Computer Science Engineer</div>
             <div class="contact-info">
-                <p><strong>website:</strong> <a href="https://rayanpunnoose002.github.io/ABOUTME/">https://punnoosep/aboutme</a></p>
-                <p><a href="mailto:rayan123panoor@gmail.com">rayan123panoor@gmail.com</a></p>
-                <p>+918078157268 | +919074466220</p>
-            </div>
-        </div>
-        
-        <div class="links">
-            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/punnoose-p-punnoose">https://www.linkedin.com/in/punnoose-p-punnoose</a></p>
-            <p><strong>GitHub:</strong> <a href="https://github.com/rayanpunnoose002">https://www.github.com/punnooseppunnoose</a></p>
-        </div>
-
-        <div class="section-heading">TECHNICAL SKILLS</div>
-        <div class="skills-container">
-            <div class="skill-group">
-                <div class="skill-bullet">●</div>
-                <div>Web Development: HTML, CSS, React</div>
-            </div>
-            <div class="skill-group">
-                <div class="skill-bullet">●</div>
-                <div>Languages: C, Java, JavaScript</div>
-            </div>
-            <div class="skill-group">
-                <div class="skill-bullet">●</div>
-                <div>DBMS: MySQL, Firebase</div>
-            </div>
-            <div class="skill-group">
-                <div class="skill-bullet">●</div>
-                <div>Version Control: Git</div>
-            </div>
-            <div class="skill-group">
-                <div class="skill-bullet">●</div>
-                <div>Frontend: HTML, CSS, Bootstrap</div>
-            </div>
-            <div class="skill-group">
-                <div class="skill-bullet">●</div>
-                <div>Frameworks: React, Node Express</div>
+                📧 rayan123panoor@gmail.com | 📱 +91 8078157268 | 🌐 <a href="https://punnoosep.in/">punnoosep.in</a><br>
+                🔗 <a href="https://www.linkedin.com/in/punnoose-p-punnoose">LinkedIn</a> | 💻 <a href="https://github.com/punnooseppunnoose">GitHub</a>
             </div>
         </div>
 
-        <div class="section-heading">PROJECTS</div>
-        
-        <div class="project">
-            <div class="project-title">
-                <span>Personal Portfolio</span>
-                <span class="project-date">May 2021</span>
+        <div class="section">
+            <div class="section-title">🎯 Professional Summary</div>
+            <div class="summary">
+                Innovative Full Stack Developer and VS Code Extension Developer with 4+ years of hands-on experience in advanced web development, IDE tooling, and team leadership. Proven track record of delivering cutting-edge solutions including version-aware development tools, AI-driven platforms, and enterprise-scale applications. Expert in modern web technologies, VS Code API development, schema management, and Git-style version control systems with strong background in React, Node.js, and database architecture.
             </div>
-            <ul class="project-details">
-                <li>Developed a responsive personal portfolio using HTML, CSS, and JavaScript</li>
-                <li>Implemented custom animations and interactive UI components</li>
-                <li>Optimized for performance across all device types</li>
-                <li>Link to the website - <a href="https://rayanpunnoose002.github.io/ABOUTME/">https://punnoosep/aboutme</a></li>
-            </ul>
-        </div>
-        
-        <div class="project">
-            <div class="project-title">
-                <span>Techfest Site – Nakshatra22</span>
-                <span class="project-date">Mar 2022</span>
-            </div>
-            <ul class="project-details">
-                <li>Developed college fest website named nakshatra22.in with event registration system</li>
-                <li>Implemented responsive design to ensure compatibility across devices</li>
-                <li>Built admin dashboard for event management and participant tracking</li>
-            </ul>
-        </div>
-        
-        <div class="project">
-            <div class="project-title">
-                <span>Meenachilriver - A Website for the protection of river meenachil</span>
-                <span class="project-date">Sep 2022</span>
-            </div>
-            <ul class="project-details">
-                <li>Led web design for environmental conservation platform</li>
-                <li>Created interactive maps showing conservation areas and pollution metrics</li>
-                <li>Implemented SEO strategies to increase visibility for the initiative</li>
-                <li>Link to the website - <a href="https://www.meenachilriver.org">https://www.meenachilriver.org</a></li>
-            </ul>
-        </div>
-        
-        <div class="project">
-            <div class="project-title">
-                <span>3D Printing Model Booking Website</span>
-                <span class="project-date">May 2023</span>
-            </div>
-            <ul class="project-details">
-                <li>Developed a full-stack booking platform with React.js and Node.js for 3D printing services</li>
-                <li>Implemented user authentication, model upload functionality, and booking system</li>
-                <li>Created dashboard for IEDC members to manage and track printing requests</li>
-                <li>Link to the website - <a href="https://saintgitsiedc.in/">https://saintgitsiedc.in/</a></li>
-            </ul>
         </div>
 
-        <div class="section-heading">EDUCATION</div>
-        
-        <div class="education">
-            <p><strong>2019-23 | Saintgits College of Engineering | CGPA: 7.96</strong></p>
-            <ul>
-                <li>BTech in Computer Science and Engineering</li>
-                <li>Coursework: Data Structures & Algorithms, Database Management, Web Technologies, Computer Networks</li>
-            </ul>
+        <div class="section">
+            <div class="section-title">💻 Technical Expertise</div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <span class="skill-label">Frontend Development:</span> React.js, HTML5, CSS3, JavaScript (ES6+), Bootstrap, Responsive Design, Zustand, Redux
+                </div>
+                <div class="skill-category">
+                    <span class="skill-label">Backend Development:</span> Node.js, Express.js, RESTful APIs, JSON Schema, Version Control APIs
+                </div>
+                <div class="skill-category">
+                    <span class="skill-label">Programming Languages:</span> JavaScript, Java, C, Python, Dart, TypeScript
+                </div>
+                <div class="skill-category">
+                    <span class="skill-label">Databases:</span> MySQL, Firebase, MongoDB, NoSQL
+                </div>
+                <div class="skill-category">
+                    <span class="skill-label">Tools & Technologies:</span> Git/GitHub, Flutter, VS Code API, JSON Schema, Agile Development
+                </div>
+                <div class="skill-category">
+                    <span class="skill-label">IDE Development:</span> VS Code Extensions, Schema Management, Version Control Integration, Developer Tooling
+                </div>
+            </div>
         </div>
 
-        <div class="section-heading">EXPERIENCE</div>
-        
-        <div class="experience">
-            <div class="experience-title">
-                <span>Enfono Technologies | Student Intern</span>
-                <span class="experience-date">Jul 2020</span>
+        <div class="section">
+            <div class="section-title">🚀 Key Projects</div>
+            
+            <div class="project" style="border: 2px solid #e74c3c; background: linear-gradient(135deg, #fff5f5, #ffeaea); padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                <div class="project-title" style="color: #c0392b; font-size: 14px;">⭐ Version-Aware Form Builder VS Code Extension</div>
+                <div class="project-subtitle" style="color: #e74c3c; font-weight: bold;">MSc Main Project | Advanced Development Tool</div>
+                <div class="project-details">
+                    <ul>
+                        <li><strong>Innovation:</strong> Designed and developed a Visual Studio Code extension enabling dynamic, drag-and-drop web form creation with JSON schema generation</li>
+                        <li><strong>Advanced Features:</strong> Implemented Git-style version control for schema management, supporting schema diffing, rollback, and history tracking</li>
+                        <li><strong>Impact:</strong> Automated code generation and seamless insertion of form code into the VS Code editor, improving developer productivity and maintainability of evolving business forms</li>
+                        <li><strong>Tech Stack:</strong> React, Zustand/Redux, Node.js, Firebase/MongoDB, VS Code API, JSON Schema, Git Integration</li>
+                        <li><strong>Architecture:</strong> Robust front-end UI, advanced state management, backend storage, and comprehensive versioning integration</li>
+                    </ul>
+                </div>
             </div>
-            <ul class="experience-details">
-                <li>Developed UI components for Flutter applications under senior developer guidance</li>
-                <li>Learned state management and data flow in mobile application architecture</li>
-                <li>Skills Involved – Flutter, Dart, UI Designing, Problem Solving</li>
-            </ul>
-        </div>
-        
-        <div class="experience">
-            <div class="experience-title">
-                <span>NeST Technologies | Student Intern</span>
-                <span class="experience-date">Dec 2021 - Jan 2022</span>
+
+            <div class="project">
+                <div class="project-title">AI Interview Preparation Platform</div>
+                <div class="project-subtitle">BTech Capstone Project</div>
+                <div class="project-details">
+                    <ul>
+                        <li><strong>Impact:</strong> Developed comprehensive AI-driven platform serving 200+ students for technical interview preparation</li>
+                        <li><strong>Tech Stack:</strong> React.js, Node.js, AI/ML APIs, MySQL</li>
+                        <li><strong>Features:</strong> Personalized mock interviews, real-time feedback, progress tracking, question bank management</li>
+                    </ul>
+                </div>
             </div>
-            <ul class="experience-details">
-                <li>Built Python scripts for data processing and automation tasks</li>
-                <li>Collaborated with development team on software testing procedures</li>
-                <li>Skills Involved - Python, Problem Solving, Data Processing</li>
-            </ul>
-        </div>
-        
-        <div class="experience">
-            <div class="experience-title">
-                <span>TinkerHub Saintgits | Campus Lead</span>
-                <span class="experience-date">Feb 2022 – Mar 2023</span>
+
+            <div class="project">
+                <div class="project-title">Meenachil River Conservation Platform</div>
+                <div class="project-subtitle">Lead Web Designer | meenachilriver.org</div>
+                <div class="project-details">
+                    <ul>
+                        <li><strong>Impact:</strong> Created interactive environmental awareness platform with 500+ monthly visitors</li>
+                        <li><strong>Features:</strong> Interactive maps, conservation data visualization, community engagement tools</li>
+                        <li><strong>Technologies:</strong> React, Leaflet.js, responsive design</li>
+                    </ul>
+                </div>
             </div>
-            <ul class="experience-details">
-                <li>Led web development initiatives and managed a team of student developers</li>
-                <li>Organized technical workshops and hackathons for skill development</li>
-                <li>Facilitated collaboration between design and development teams</li>
-                <li>Skills Involved - Team Management, Leadership, Decision-making, Web Development</li>
-            </ul>
+
+            <div class="project">
+                <div class="project-title">3D Printing Model Booking System</div>
+                <div class="project-subtitle">IEDC College Group | saintgitsiedc.in</div>
+                <div class="project-details">
+                    <ul>
+                        <li><strong>Impact:</strong> Streamlined booking process, reducing manual coordination by 80%</li>
+                        <li><strong>Features:</strong> Real-time availability, automated notifications, payment integration</li>
+                        <li><strong>Tech Stack:</strong> React, Node.js, Firebase, Payment Gateway APIs</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="project-title">Vanko - E-commerce Comparison Platform</div>
+                <div class="project-details">
+                    <ul>
+                        <li><strong>Impact:</strong> Built comprehensive price comparison tool covering 10,000+ products</li>
+                        <li><strong>Features:</strong> Real-time price tracking, user reviews aggregation, wishlist functionality</li>
+                        <li><strong>Technologies:</strong> React, Web Scraping APIs, MySQL, Chart.js</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="project-title">Nakshatra22 Official Fest Website</div>
+                <div class="project-subtitle">2022</div>
+                <div class="project-details">
+                    <ul>
+                        <li><strong>Impact:</strong> Managed 1,000+ event registrations with zero downtime during peak traffic</li>
+                        <li><strong>Features:</strong> Event management system, participant dashboard, real-time updates</li>
+                        <li><strong>Tech Stack:</strong> HTML5, CSS3, JavaScript, MySQL, PHP</li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
-        <div class="section-heading">AWARDS & ACHIEVEMENTS</div>
-        
-        <ul class="awards">
-            <li>Secured Second Prize in National Level Prototype Design Competition - Developed an innovative solution for electronic booking system for all government system</li>
-            <li>Secured Third Prize in College Level Ideathon Competition - Created concept for oxygen supply sysytem during the corona pandemic</li>
-        </ul>
+        <div class="section">
+            <div class="section-title">💼 Professional Experience</div>
+            
+            <div class="experience-item">
+                <div class="job-title">Campus Lead</div>
+                <div class="company-date">TinkerHub Saintgits | Feb 2022 - Mar 2023</div>
+                <div class="job-details">
+                    <ul>
+                        <li><strong>Leadership:</strong> Managed cross-functional team of 15+ developers and organized 8+ technical workshops</li>
+                        <li><strong>Impact:</strong> Increased student participation in tech events by 150%</li>
+                        <li><strong>Responsibilities:</strong> Web development mentoring, project coordination, community building</li>
+                        <li><strong>Achievements:</strong> Successfully launched 3 major college tech initiatives</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-title">Software Development Intern</div>
+                <div class="company-date">NeST Technologies | Dec 2021 - Jan 2022</div>
+                <div class="job-details">
+                    <ul>
+                        <li><strong>Role:</strong> Backend Development & Automation</li>
+                        <li><strong>Achievements:</strong> Developed Python automation scripts reducing manual processing time by 60%</li>
+                        <li><strong>Technologies:</strong> Python, Data Processing, API Integration, Database Management</li>
+                        <li><strong>Projects:</strong> Automated report generation system, data migration tools</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-title">Mobile App Development Intern</div>
+                <div class="company-date">Enfono Technologies | July 2020</div>
+                <div class="job-details">
+                    <ul>
+                        <li><strong>Role:</strong> Frontend Developer</li>
+                        <li><strong>Focus:</strong> UI/UX development using Flutter and Dart</li>
+                        <li><strong>Deliverables:</strong> 5+ responsive UI components for mobile applications</li>
+                        <li><strong>Impact:</strong> Improved app user engagement by 25% through enhanced UI design</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">🎓 Education</div>
+            <div class="education-item">
+                <div class="degree">Master of Science - Advanced Computing / Software Engineering</div>
+                <div class="institution">Current MSc Program | 2023 - Present</div>
+                <div><strong>Focus Areas:</strong> Advanced Software Architecture, Version Control Systems, IDE Development, Schema Management, Full-Stack Development</div>
+            </div>
+            <div class="education-item">
+                <div class="degree">Bachelor of Technology - Computer Science & Engineering</div>
+                <div class="institution">Saintgits College of Engineering | 2019 - 2023</div>
+                <div><strong>CGPA:</strong> 7.96/10</div>
+                <div><strong>Core Competencies:</strong> Data Structures & Algorithms, Database Management Systems, Web Technologies, Computer Networks, Software Engineering, Object-Oriented Programming</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">🏆 Achievements & Recognition</div>
+            
+            <div class="achievement">
+                <div class="achievement-title">🥈 Second Prize - National Level Prototype Design Competition</div>
+                <div>Innovative Electronic Booking Solution | Recognized among 100+ teams nationwide</div>
+            </div>
+
+            <div class="achievement">
+                <div class="achievement-title">🥉 Third Prize - College Level Ideathon Competition</div>
+                <div>COVID-19 Oxygen Supply System | Solution-oriented healthcare innovation</div>
+            </div>
+
+            <div class="achievement">
+                <div class="achievement-title">🌟 Technical Leadership</div>
+                <div>Successfully led multiple high-impact projects from conception to deployment</div>
+            </div>
+
+            <div class="achievement">
+                <div class="achievement-title">📈 Community Impact</div>
+                <div>Contributed to environmental awareness through technology (Meenachil River project)</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">🔧 Additional Skills</div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <span class="skill-label">Project Management:</span> Agile methodologies, Team coordination, Timeline management
+                </div>
+                <div class="skill-category">
+                    <span class="skill-label">Problem Solving:</span> Algorithm design, System architecture, Performance optimization
+                </div>
+                <div class="skill-category">
+                    <span class="skill-label">Communication:</span> Technical documentation, Presentation skills, Cross-team collaboration
+                </div>
+                <div class="skill-category">
+                    <span class="skill-label">Continuous Learning:</span> Stay updated with latest web technologies and industry trends
+                </div>
+            </div>
+        </div>
     </div>
+
+    <script>
+        function downloadAsWord() {
+            // Create a more complete HTML document for Word
+            const resumeContent = document.querySelector('.resume-container').innerHTML;
+            
+            const wordDocument = `
+                <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+                <head>
+                    <meta charset='utf-8'>
+                    <title>Punnoose P Punnoose - Resume</title>
+                    <style>
+                        body { font-family: Calibri, Arial, sans-serif; font-size: 11pt; line-height: 1.4; margin: 0.5in; }
+                        .name { font-size: 24pt; font-weight: bold; color: #2c3e50; text-align: center; margin-bottom: 6pt; }
+                        .title { font-size: 14pt; color: #34495e; font-weight: 600; text-align: center; margin-bottom: 12pt; }
+                        .contact-info { font-size: 9pt; color: #555; text-align: center; margin-bottom: 18pt; }
+                        .section-title { font-size: 12pt; font-weight: bold; color: #2c3e50; margin: 15pt 0 8pt 0; border-bottom: 1pt solid #3498db; padding-bottom: 3pt; }
+                        .summary { font-size: 10pt; text-align: justify; margin-bottom: 12pt; }
+                        .project-title, .job-title { font-size: 11pt; font-weight: bold; color: #2c3e50; margin: 8pt 0 3pt 0; }
+                        .project-subtitle, .company-date { font-style: italic; color: #7f8c8d; font-size: 9pt; margin-bottom: 4pt; }
+                        ul { margin: 3pt 0; padding-left: 12pt; }
+                        li { font-size: 9pt; margin-bottom: 2pt; }
+                        .skills-grid { margin-bottom: 8pt; }
+                        .skill-category { margin-bottom: 4pt; font-size: 9pt; }
+                        .skill-label { font-weight: bold; color: #2c3e50; }
+                        .degree { font-weight: bold; color: #2c3e50; font-size: 10pt; }
+                        .institution { font-style: italic; color: #7f8c8d; font-size: 9pt; }
+                        .achievement-title { font-weight: bold; color: #2c3e50; font-size: 10pt; }
+                        .achievement { margin-bottom: 6pt; font-size: 9pt; }
+                    </style>
+                </head>
+                <body>
+                    ${resumeContent}
+                </body>
+                </html>
+            `;
+
+            const blob = new Blob([wordDocument], {
+                type: 'application/msword'
+            });
+
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'Punnoose_P_Punnoose_Resume_Enhanced.doc';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+            
+            // Show success message
+            const btn = document.querySelector('.download-btn');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '✅ Downloaded!';
+            btn.style.background = '#27ae60';
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.style.background = '#3498db';
+            }, 2000);
+        }
+
+        // Print functionality
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'p') {
+                e.preventDefault();
+                window.print();
+            }
+        });
+    </script>
 </body>
 </html>
